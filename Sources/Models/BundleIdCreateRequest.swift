@@ -21,7 +21,7 @@ public struct BundleIdCreateRequest: Encodable {
 extension BundleIdCreateRequest.Data {
     
     public struct Attributes: Encodable {
-        public let identifier: String
+        public let id: String
         public let name: String
         public let platform: BundleIdPlatform
         public let seedId: String?

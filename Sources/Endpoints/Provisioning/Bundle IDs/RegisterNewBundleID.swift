@@ -11,13 +11,13 @@ extension APIEndpoint where T == BundleIdResponse {
     
     /// Register a new bundle ID for app development.
     public static func registerNewBundleId(
-        identifier: String,
+        id: String,
         name: String,
         platform: BundleIdPlatform) -> APIEndpoint {
         
         let request = BundleIdCreateRequest(data: .init(
             attributes: .init(
-            identifier: identifier,
+            id: id,
             name: name,
             platform: platform,
             seedId: nil)))
