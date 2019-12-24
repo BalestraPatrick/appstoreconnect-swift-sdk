@@ -41,7 +41,7 @@ public struct BundleIds {
     public enum Field: String, CaseIterable, NestableQueryParameter {
         case bundleIds, profiles, bundleIdCapabilities
 
-        static var key: String = "certificates"
+        static var key: String = "bundleIds"
         var pair: NestableQueryParameter.Pair { return (nil, rawValue) }
     }
 
