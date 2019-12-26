@@ -10,7 +10,7 @@ import Foundation
 extension APIEndpoint where T == Void {
 
     /// Delete a bundle ID that is used for app development.
-    public static func deleteBundleId(id: String) -> APIEndpoint {
+    public static func delete(bundleWithId id: String) -> APIEndpoint {
 
         return APIEndpoint(
             path: "bundleIds/\(id)",
