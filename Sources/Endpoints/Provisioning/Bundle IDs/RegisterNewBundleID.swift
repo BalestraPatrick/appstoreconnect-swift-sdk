@@ -17,10 +17,10 @@ extension APIEndpoint where T == BundleIdResponse {
         
         let request = BundleIdCreateRequest(data: .init(
             attributes: .init(
-            id: id,
-            name: name,
-            platform: platform,
-            seedId: nil)))
+                identifier: id,
+                name: name,
+                platform: platform,
+                seedId: nil)))
         
         return APIEndpoint(
             path: "bundleIds",
