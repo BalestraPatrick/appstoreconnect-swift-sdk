@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension APIEndpoint where T == BundleIdResponse {
+extension APIEndpoint where T == BundleIdCapabilityResponse {
 
     /// Enable a capability for a bundle ID.
     public static func enableCapability(

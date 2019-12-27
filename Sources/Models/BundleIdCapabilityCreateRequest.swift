@@ -48,10 +48,10 @@ extension BundleIdCapabilityCreateRequest.Data {
     /// Attributes that describe a resource.
     public struct Attributes: Codable {
 
-        ///
+        /// The type of the capabillity.
         public let capabilityType: CapabilityType?
 
-        ///
+        /// Specific settings for this capability.
         public let settings: [CapabilitySetting]?
     }
 
