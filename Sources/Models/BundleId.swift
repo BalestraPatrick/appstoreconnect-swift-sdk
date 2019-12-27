@@ -27,16 +27,9 @@ public struct BundleId: Codable {
 
     /// Attributes that describe a resource.
     public struct Attributes: Codable {
-
-        /// The bundle identifier.
         public let identifier: String?
-
-        /// The bundle identifier name.
         public let name: String?
-
-
-        public let platform: [BundleIdPlatform]?
-
+        public let platform: BundleIdPlatform?
         public let seedId: String?
     }
 

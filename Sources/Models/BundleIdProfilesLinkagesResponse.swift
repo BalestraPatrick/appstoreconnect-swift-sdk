@@ -11,7 +11,7 @@ import Foundation
 public struct BundleIdProfilesLinkagesResponse: Codable {
 
     /// The object types and IDs of the related resources.
-    public let data: BundleIdProfilesLinkagesResponse.Data
+    public let data: [BundleIdProfilesLinkagesResponse.Data]
 
     /// Navigational links including the self-link and links to the related data.
     public let links: DocumentLinks

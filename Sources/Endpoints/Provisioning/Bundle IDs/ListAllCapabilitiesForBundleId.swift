@@ -9,8 +9,8 @@ import Foundation
 
 extension APIEndpoint where T == BundleIdCapabilitiesResponse {
 
-    /// Get a list of all profiles for a specific bundle ID.
-    public static func listAllProfileIdsForBundleId(
+    /// Get a list of all capabilities for a specific bundle ID.
+    public static func listAllCapabilitiesIdsForBundleId(
         id: String,
         fields: [BundleIds.Field]? = nil,
         limit: Int? = nil) -> APIEndpoint {
