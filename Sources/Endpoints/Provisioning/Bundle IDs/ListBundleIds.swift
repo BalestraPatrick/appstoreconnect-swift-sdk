@@ -23,12 +23,14 @@ extension APIEndpoint where T == BundleIdsResponse {
         sort: [BundleIds.Sort]? = nil,
         limit: Int? = nil,
         next: PagedDocumentLinks? = nil) -> APIEndpoint {
+
         var parameters = [String: Any]()
         if let fields = fields { parameters.add(fields) }
         if let filter = filter { parameters.add(filter) }
         if let sort = sort { parameters.add(sort) }
         if let limit = limit { parameters["limit"] = limit }
         if let nextCursor = next?.nextCursor { parameters["cursor"] = nextCursor }
+        
         return APIEndpoint(
             path: "bundleIds",
             method: .get,
@@ -38,11 +40,22 @@ extension APIEndpoint where T == BundleIdsResponse {
 
 public struct BundleIds {
 
-    public enum Field: String, CaseIterable, NestableQueryParameter {
-        case bundleIds, profiles, bundleIdCapabilities
+    public enum Field: NestableQueryParameter {
+        case bundleIds([BundleIds])
+        case profiles([Profiles])
+        case bundleIdCapabilities([BundleIdCapabilities])
 
-        static var key: String = "bundleIds"
-        var pair: NestableQueryParameter.Pair { return (nil, rawValue) }
+        static var key: String = "fields"
+        var pair: Pair {
+            switch self {
+            case .bundleIds(let values):
+                return (BundleIds.key, values.map({ $0.pair.value }).joinedByCommas())
+            case .profiles(let values):
+                return (Profiles.key, values.map({ $0.pair.value }).joinedByCommas())
+            case .bundleIdCapabilities(let values):
+                return (BundleIdCapabilities.key, values.map({ $0.pair.value }).joinedByCommas())
+            }
+        }
     }
 
     /// Attributes, relationships, and IDs by which to filter.
@@ -92,7 +105,6 @@ public struct BundleIds {
         var pair: NestableQueryParameter.Pair { return (nil, rawValue) }
     }
 }
-
 
 extension BundleIds.Field {
 
